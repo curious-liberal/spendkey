@@ -29,11 +29,19 @@ pip install git+https://github.com/yourusername/spendkey-py.git
 ## CLI usage
 
 ```bash
-# From a hex spend key
+# Direct — key on the command line
 spendkey -s af6082af29108abda69cc385dfed2102b892a871695367cb22a4b9b6df8b3206
 
-# From a mnemonic
-spendkey -m "hedgehog unique ..."
+# Piped from another command (key never touches shell history)
+echo "$SPEND_KEY" | spendkey -s -
+
+# Read from a file
+spendkey -s - < key.txt
+
+# Interactive prompt — input hidden, nothing logged
+spendkey -i
+# or just run with no arguments
+spendkey
 ```
 
 Output:
