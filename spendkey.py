@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 from monero.seed import Seed
 
 DEFAULT_SPENDKEY = "af6082af29108abda69cc385dfed2102b892a871695367cb22a4b9b6df8b3206"
@@ -30,4 +31,11 @@ def print_keys(keys: dict) -> None:
 
 
 if __name__ == "__main__":
-    print_keys(derive_keys(DEFAULT_SPENDKEY))
+    parser = argparse.ArgumentParser(description="Derive Monero keys from a spend key or mnemonic")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--spendkey", help="Private spend key (hex)")
+    group.add_argument("--mnemonic", help="25-word mnemonic phrase")
+    args = parser.parse_args()
+
+    phrase = args.mnemonic or args.spendkey or DEFAULT_SPENDKEY
+    print_keys(derive_keys(phrase))
