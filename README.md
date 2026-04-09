@@ -10,7 +10,7 @@ A Monero wallet is fully described by one 64-character hex value (the private sp
 
 - Recover a complete key set from a cold-stored spend key
 - Verify that a known address matches a given spend key
-- Integrate key derivation into other tools (e.g. [sseed](https://github.com/monero-ecosystem/sseed)) without depending on a full wallet binary
+- Integrate key derivation into other tools (e.g. [sseed](https://github.com/ethene/sseed)) without depending on a full wallet binary
 
 Inspired by the original C++ implementation at [moneroexamples/spendkey](https://github.com/moneroexamples/spendkey), updated for modern Python.
 
