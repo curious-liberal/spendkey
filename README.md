@@ -23,7 +23,7 @@ pip install .
 Or directly from the repo:
 
 ```bash
-pip install git+https://github.com/yourusername/spendkey-py.git
+pip install git+https://github.com/curious-liberal/spendkey-py.git
 ```
 
 ## CLI usage
