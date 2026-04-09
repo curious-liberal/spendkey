@@ -4,8 +4,9 @@ from monero.seed import Seed
 DEFAULT_SPENDKEY = "af6082af29108abda69cc385dfed2102b892a871695367cb22a4b9b6df8b3206"
 
 
-def derive_keys(hex_spend_key: str) -> dict:
-    seed = Seed(hex_spend_key)
+def derive_keys(phrase: str) -> dict:
+    """Accept either a hex spend key or a 25-word mnemonic."""
+    seed = Seed(phrase)
     return {
         "mnemonic": seed.phrase,
         "hex_seed": seed.hex,
